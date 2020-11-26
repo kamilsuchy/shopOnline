@@ -1,6 +1,9 @@
 package account;
 
-public abstract class Account implements IAccount{
+import offers.Offers;
+import products.Product;
+
+public abstract class Account {
     String name;
     String surname;
     String login;
@@ -30,4 +33,13 @@ public abstract class Account implements IAccount{
     public String getPassword() {
         return password;
     }
+
+    public void printOffers() {
+        Offers offers = Offers.getInstance();
+        for (Product product : offers.getProductList()){
+            product.print();
+        }
+    }
+
+    public abstract void accountLoop();
 }

@@ -3,6 +3,7 @@ package account;
 import offers.Offers;
 import products.Product;
 
+
 public abstract class Account {
     String name;
     String surname;

@@ -1,5 +1,6 @@
 package products;
 
-public abstract class Product implements IProduct {
+public interface Product {
 
+    public  void print();
 }

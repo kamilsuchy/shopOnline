@@ -24,4 +24,8 @@ public class Offers {
     public List<Product> getProductList() {
         return productList;
     }
+
+    public void addProduct(Product a){
+        productList.add(a);
+    }
 }

@@ -1,10 +1,12 @@
 package account;
 
-import WebUsers.WebUsers;
-import loginAndRegister.Register;
-import order.Order;
-import java.util.ArrayList;
-import java.util.List;
+import historyOfOrders.HistoryIterator;
+import historyOfOrders.HistoryOfOrders;
+import offerFactory.BookFactory;
+import offerFactory.Factory;
+import offers.Offers;
+import products.*;
+
 import java.util.Scanner;
 
 public class CustomerAccount extends Account implements FacadeCustomerAccount{
@@ -12,14 +14,22 @@ public class CustomerAccount extends Account implements FacadeCustomerAccount{
     UserState userState;
     double balance;
     String email;
-    List<Order> historyOfOrders;
+    HistoryOfOrders historyOfOrders;
+
+    public UserState getUserState() {
+        return userState;
+    }
+
+    public void setUserState(UserState userState) {
+        this.userState = userState;
+    }
 
     public CustomerAccount(String name, String surname, String login, String password, int userID, String email) {
         super(name, surname, login, password, userID);
         this.userState = UserState.NEW;
         this.balance = 0;
         this.email = email;
-        this.historyOfOrders = new ArrayList<>();
+        this.historyOfOrders = new HistoryOfOrders();
     }
 
     private void addMoney(double money) {
@@ -49,13 +59,40 @@ public class CustomerAccount extends Account implements FacadeCustomerAccount{
         }
     }
 
-    private void logout() {
-        System.out.println("wylogowano poprawnie");
-        Register.logOrRegister();
+    private void addProduct(){
+        Factory.create(this);
+    }
+
+    private void printHistory(){
+        System.out.println("1 - wyświetl historię od najstarszych zamówień");
+        System.out.println("2 - wyświetl historię od najnowszych zamówień");
+        Scanner scanner = new Scanner(System.in);
+        int c= scanner.nextInt();
+        if (c == 1){
+            printHistoryFromOldest();
+        }else{
+            printHistoryFromMostRecent();
+        }
+    }
+
+    private void printHistoryFromOldest(){
+        HistoryIterator iterator = historyOfOrders.getIterator();
+        for (iterator.first(); !iterator.isLast(); iterator.next()) {
+            iterator.currentOrder().printOrder();
+        }
+//        iterator.last().printOrder(); //TODO sprawdzic czy potrzebne
+    }
+
+    private void printHistoryFromMostRecent(){
+        HistoryIterator iterator = historyOfOrders.getIterator();
+        for (iterator.last(); !iterator.isFirst();iterator.prev()){
+            iterator.currentOrder().printOrder();
+        }
+//        iterator.first().printOrder(); //TODO sprawdzic czy potrzebne
     }
 
     @Override
-    public void accountLoop() {
+    public void printOptions(){
         System.out.println("Co chcesz zrobić?");
         System.out.println("1 - przegladaj oferty");
         System.out.println("2 - doladuj konto");
@@ -63,30 +100,33 @@ public class CustomerAccount extends Account implements FacadeCustomerAccount{
         System.out.println("4 - zmien dane konta");
         System.out.println("5 - dodaj ogloszenie");
         System.out.println("6 - wyloguj");
+    }
+
+    @Override
+    public void accountLoop() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            printOptions();
             int c = scanner.nextInt();
             if (c == 1) {
                 printOffers();
-                break;
+                //break;
             } else if (c == 2) {
                 addMoneyToAccount();
-                break;
+                //break;
             } else if (c == 3) {
-                //todo
-                break;
+                printHistory();
+                //break;
             } else if (c == 4) {
                 //todo
-                break;
+                //break;
             }else if (c == 5){
-                //todo
-                break;
+                addProduct();
+                //break;
             }else if (c == 6){
                 logout();
                 break;
             }
         }
     }
-
-
 }

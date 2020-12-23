@@ -1,11 +1,11 @@
 package loginAndRegister;
 
-import WebUsers.WebUsers;
+import webUsers.WebUsers;
 import account.Account;
 import account.AdminAccount;
 import account.CustomerAccount;
+import account.UserState;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,7 +45,7 @@ public class Register {
         return null;
     }
 
-    public boolean addAdminAccount(List<Account> listOfAccounts, String name, String surname, String login, String password) {
+    public static boolean addAdminAccount(List<Account> listOfAccounts, String name, String surname, String login, String password) {
         if (checkLoginAndPassword(listOfAccounts, login, password)) {
             Account newAdmin = new AdminAccount(name, surname, login, password, listOfAccounts.size());
             listOfAccounts.add(newAdmin);
@@ -57,21 +57,34 @@ public class Register {
         }
     }
 
+    public static boolean isBanned(CustomerAccount account){
+        return account.getClass() == CustomerAccount.class &&
+                (account.getUserState() == UserState.BLOCKED ||
+                        account.getUserState() == UserState.BANNED);
+    }
+
     public static void logInAccount(List<Account> listOfAccounts) {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+//        while (true) {
             System.out.println("podaj login");
             String login = scanner.next();
             System.out.println("podaj haslo");
             String password = scanner.next();
             Account account;
-            if ( (account = logIn(listOfAccounts, login, password))!= null) {
-                System.out.println("zalogowano poprawnie");
-                account.accountLoop();
-                break;
+            if ( (account = logIn(listOfAccounts, login, password))!= null ) {
+                if ( isBanned((CustomerAccount) account)){
+                    System.out.println("Nie mozna zalogowac. Uzytkownik zbanowany lub zablokowany");
+                    logOrRegister();
+                }else{
+                    System.out.println("zalogowano poprawnie");
+                    account.accountLoop();
+//                break;
+                }
+            }else{
+                System.out.println("niepoprawny login lub haslo");
+                logOrRegister();
             }
-            System.out.println("niepoprawny login lub haslo");
-        }
+//        }
     }
     @SuppressWarnings("ConstantConditions")
     public static void createAccount(List<Account> listOfAccounts) {
@@ -85,20 +98,33 @@ public class Register {
         name = scanner.next();
         System.out.println("podaj nazwisko");
         surname = scanner.next();
-        while (true) {
+       // while (true) {
             System.out.println("podaj login");
             login = scanner.next();
             System.out.println("podaj haslo");
             password = scanner.next();
-            System.out.println("podaj email");
-            email = scanner.next();
-            if (addCustomerAccount(listOfAccounts, name, surname, login, password, email)) {
-                logIn(listOfAccounts, login, password).accountLoop();
-                break;
-            } else {
-                System.out.println("niewłasciwy login lub hasło");
+
+            if (login.startsWith("[ADMIN]")){
+                if (addAdminAccount(listOfAccounts, name, surname, login, password)) {
+                    logIn(listOfAccounts, login, password).accountLoop();
+                    //      break;
+                }else {
+                    System.out.println("niewłasciwy login lub hasło");
+                    logOrRegister();
+                }
+            }else{
+                System.out.println("podaj email");
+                email = scanner.next();
+                if (addCustomerAccount(listOfAccounts, name, surname, login, password, email)) {
+                    logIn(listOfAccounts, login, password).accountLoop();
+                    //      break;
+                } else {
+                    System.out.println("niewłasciwy login lub hasło");
+                    logOrRegister();
+                }
             }
-        }
+
+        //}
     }
 
     public static void logOrRegister(){

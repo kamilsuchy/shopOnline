@@ -1,4 +1,4 @@
-package WebUsers;
+package webUsers;
 
 import account.Account;
 

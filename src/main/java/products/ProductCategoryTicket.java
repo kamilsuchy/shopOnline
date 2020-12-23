@@ -1,18 +1,34 @@
 package products;
 
+import account.Account;
+
 import java.util.Date;
 
 public class ProductCategoryTicket implements InterfaceProduct {
-    private String name;
-    private String event;
-    private Date eventDate;
-    private double price;
+    private final String name;
+    private final String event;
+    private final String eventDate;
+    private final double price;
+    private final Account account;
+
+    public ProductCategoryTicket(String name, String event, String eventDate, double price, Account account) {
+        this.name = name;
+        this.event = event;
+        this.eventDate = eventDate;
+        this.price = price;
+        this.account = account;
+    }
 
     @Override
     public void wyswietl() {
-        System.out.println("name: " + name + "\n" +
+        System.out.println("category: " + "ticket" + "\n" +
+                "name: " + name + "\n" +
                 "event: " + event + "\n" +
                 "date: " + eventDate + "\n" +
                 "price: " + price);
+    }
+
+    public Account getAccount() {
+        return account;
     }
 }

@@ -1,6 +1,7 @@
 package products;
 
 import account.Account;
+import account.FacadeAccount;
 
 
 public class ProductCategoryBook implements Product {
@@ -11,7 +12,7 @@ public class ProductCategoryBook implements Product {
     private final int quantity;
     private final String author;
     private final String releaseDate;
-    private final Account account;
+    private final FacadeAccount account;
 
     public ProductCategoryBook(String name, String description, double price, int quantity, String author, String releaseDate, Account account) {
         this.name = name;
@@ -34,7 +35,7 @@ public class ProductCategoryBook implements Product {
                 "release: " + releaseDate);
     }
 
-    public Account getAccount() {
+    public FacadeAccount getAccount() {
         return account;
     }
 }

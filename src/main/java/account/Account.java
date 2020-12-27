@@ -5,7 +5,7 @@ import offers.Offers;
 import products.Product;
 
 
-public abstract class Account {
+public abstract class Account implements FacadeAccount{
     String name;
     String surname;
     String login;

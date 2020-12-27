@@ -1,6 +1,7 @@
 package products;
 
 import account.Account;
+import account.FacadeAccount;
 
 public class ProductCategoryGame implements Product {
 
@@ -8,7 +9,7 @@ public class ProductCategoryGame implements Product {
     private final String description;
     private final String releaseDate;
     private final double price;
-    private final Account account;
+    private final FacadeAccount account;
 
     public ProductCategoryGame(String name, String description, String releaseDate, double price, Account account) {
         this.name = name;
@@ -27,7 +28,7 @@ public class ProductCategoryGame implements Product {
                 "price: " + price);
     }
 
-    public Account getAccount() {
+    public FacadeAccount getAccount() {
         return account;
     }
 }

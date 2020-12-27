@@ -1,6 +1,7 @@
 package products;
 
 import account.Account;
+import account.FacadeAccount;
 
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class ProductCategoryTicket implements InterfaceProduct {
     private final String event;
     private final String eventDate;
     private final double price;
-    private final Account account;
+    private final FacadeAccount account;
 
     public ProductCategoryTicket(String name, String event, String eventDate, double price, Account account) {
         this.name = name;
@@ -28,7 +29,7 @@ public class ProductCategoryTicket implements InterfaceProduct {
                 "price: " + price);
     }
 
-    public Account getAccount() {
+    public FacadeAccount getAccount() {
         return account;
     }
 }

@@ -1,12 +1,13 @@
 package webUsers;
 
 import account.Account;
+import account.FacadeAccount;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WebUsers {
-    List<Account> accountList;
+    List<FacadeAccount> accountList;
     public static WebUsers instance;
 
     private WebUsers(){
@@ -21,7 +22,7 @@ public class WebUsers {
         return instance;
     }
 
-    public List<Account> getAccountList() {
+    public List<FacadeAccount> getAccountList() {
         return accountList;
     }
 

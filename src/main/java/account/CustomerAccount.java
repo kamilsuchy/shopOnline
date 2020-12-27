@@ -9,7 +9,7 @@ import products.*;
 
 import java.util.Scanner;
 
-public class CustomerAccount extends Account implements FacadeCustomerAccount{
+public class CustomerAccount extends Account {
 
     UserState userState;
     double balance;

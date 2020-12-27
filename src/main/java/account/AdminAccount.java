@@ -5,7 +5,7 @@ import webUsers.WebUsers;
 import java.util.List;
 import java.util.Scanner;
 
-public class AdminAccount extends Account implements FacadeAdminAccount {
+public class AdminAccount extends Account  {
 
 
     public AdminAccount(String name, String surname, String login, String password, int userID) {
@@ -17,8 +17,8 @@ public class AdminAccount extends Account implements FacadeAdminAccount {
         System.out.println("podaj login użytkownika ktoremu chcesz zmienic status");
         String login = scanner.next();
         CustomerAccount account = null;
-        List<Account> users = WebUsers.getInstance().getAccountList();
-        for (Account user : users){
+        List<FacadeAccount> users = WebUsers.getInstance().getAccountList();
+        for (FacadeAccount user : users){
             if (user.getLogin().equals(login) && user.getClass() == CustomerAccount.class){
                 account = (CustomerAccount) user;
             }

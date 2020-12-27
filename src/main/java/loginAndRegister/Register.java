@@ -1,10 +1,7 @@
 package loginAndRegister;
 
+import account.*;
 import webUsers.WebUsers;
-import account.Account;
-import account.AdminAccount;
-import account.CustomerAccount;
-import account.UserState;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,8 +9,8 @@ import java.util.Scanner;
 public class Register {
 
 
-    private static boolean checkLoginAndPassword(List<Account> listOfAccounts, String login, String password) {
-        for (Account account : listOfAccounts) {
+    private static boolean checkLoginAndPassword(List<FacadeAccount> listOfAccounts, String login, String password) {
+        for (FacadeAccount account : listOfAccounts) {
             if (account.getLogin().equals(login)) {
                 return false;
             }
@@ -24,7 +21,7 @@ public class Register {
         return true;
     }
 
-    public static boolean addCustomerAccount(List<Account> listOfAccounts, String name, String surname, String login, String password, String email) {
+    public static boolean addCustomerAccount(List<FacadeAccount> listOfAccounts, String name, String surname, String login, String password, String email) {
         if (checkLoginAndPassword(listOfAccounts, login, password)) {
             Account newCustomer = new CustomerAccount(name, surname, login, password, listOfAccounts.size(), email);
             listOfAccounts.add(newCustomer);
@@ -36,8 +33,8 @@ public class Register {
         }
     }
 
-    public static Account logIn(List<Account> listOfAccounts, String login, String password) {
-        for (Account account : listOfAccounts) {
+    public static FacadeAccount logIn(List<FacadeAccount> listOfAccounts, String login, String password) {
+        for (FacadeAccount account : listOfAccounts) {
             if (account.getLogin().equals(login) && account.getPassword().equals(password)) {
                 return account;
             }
@@ -45,7 +42,7 @@ public class Register {
         return null;
     }
 
-    public static boolean addAdminAccount(List<Account> listOfAccounts, String name, String surname, String login, String password) {
+    public static boolean addAdminAccount(List<FacadeAccount> listOfAccounts, String name, String surname, String login, String password) {
         if (checkLoginAndPassword(listOfAccounts, login, password)) {
             Account newAdmin = new AdminAccount(name, surname, login, password, listOfAccounts.size());
             listOfAccounts.add(newAdmin);
@@ -63,14 +60,14 @@ public class Register {
                         account.getUserState() == UserState.BANNED);
     }
 
-    public static void logInAccount(List<Account> listOfAccounts) {
+    public static void logInAccount(List<FacadeAccount> listOfAccounts) {
         Scanner scanner = new Scanner(System.in);
-//        while (true) {
+
             System.out.println("podaj login");
             String login = scanner.next();
             System.out.println("podaj haslo");
             String password = scanner.next();
-            Account account;
+            FacadeAccount account;
             if ( (account = logIn(listOfAccounts, login, password))!= null ) {
                 if ( isBanned((CustomerAccount) account)){
                     System.out.println("Nie mozna zalogowac. Uzytkownik zbanowany lub zablokowany");
@@ -78,16 +75,15 @@ public class Register {
                 }else{
                     System.out.println("zalogowano poprawnie");
                     account.accountLoop();
-//                break;
                 }
             }else{
                 System.out.println("niepoprawny login lub haslo");
                 logOrRegister();
             }
-//        }
+
     }
     @SuppressWarnings("ConstantConditions")
-    public static void createAccount(List<Account> listOfAccounts) {
+    public static void createAccount(List<FacadeAccount> listOfAccounts) {
         String name;
         String surname;
         String login;
@@ -98,7 +94,7 @@ public class Register {
         name = scanner.next();
         System.out.println("podaj nazwisko");
         surname = scanner.next();
-       // while (true) {
+
             System.out.println("podaj login");
             login = scanner.next();
             System.out.println("podaj haslo");
@@ -107,9 +103,8 @@ public class Register {
             if (login.startsWith("[ADMIN]")){
                 if (addAdminAccount(listOfAccounts, name, surname, login, password)) {
                     logIn(listOfAccounts, login, password).accountLoop();
-                    //      break;
                 }else {
-                    System.out.println("niewłasciwy login lub hasło");
+                    System.out.println("niewłaściwy login lub hasło");
                     logOrRegister();
                 }
             }else{
@@ -117,20 +112,18 @@ public class Register {
                 email = scanner.next();
                 if (addCustomerAccount(listOfAccounts, name, surname, login, password, email)) {
                     logIn(listOfAccounts, login, password).accountLoop();
-                    //      break;
                 } else {
-                    System.out.println("niewłasciwy login lub hasło");
+                    System.out.println("niewłaściwy login lub hasło");
                     logOrRegister();
                 }
             }
 
-        //}
     }
 
     public static void logOrRegister(){
         System.out.println("1 - logowanie");
         System.out.println("2 - rejestracja");
-        System.out.println("3 - zakoncz");
+        System.out.println("3 - zakończ");
         Scanner scanner = new Scanner(System.in);
         int c;
         while ((c = scanner.nextInt()) != 1 && c != 2 && c!=3) {

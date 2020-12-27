@@ -1,5 +1,5 @@
 package products;
 
 public interface InterfaceProduct {
-    public void wyswietl();
+     void wyswietl();
 }

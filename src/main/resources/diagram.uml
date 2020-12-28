@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1727.2848648923882" y="1520.0">loginAndRegister.Register</node>
+    <node x="1719.2848648923882" y="1600.0">ShopOnline</node>
+    <node x="92.26248503384454" y="1000.0">historyOfOrders.HistoryIterator</node>
+    <node x="1784.72739641696" y="1320.0">account.AdminAccount</node>
+    <node x="516.7440630836265" y="570.0">products.Product</node>
+    <node x="90.14058323014672" y="170.0">order.OrderStatus</node>
+    <node x="281.26248503384454" y="800.0">shoppingCart.ShoppingCart</node>
+    <node x="171.4739165634801" y="270.0">order.Order</node>
+    <node x="1155.0348648923882" y="1420.0">loginAndRegister.LogCommand</node>
+    <node x="246.14058323014672" y="170.0">payment.Payment</node>
+    <node x="519.3339136052731" y="920.0">offerFactory.GameFactory</node>
+    <node x="1699.2848648923882" y="1420.0">loginAndRegister.RegisterCommand</node>
+    <node x="40.30759216511535" y="1110.0">historyOfOrders.HistoryOfOrders</node>
+    <node x="184.89058323014672" y="0.0">discount.IDiscount</node>
+    <node x="0.0" y="90.0">discount.DefaultDiscount</node>
+    <node x="1355.0576923076924" y="410.0">account.FacadeAccount</node>
+    <node x="672.0575921651155" y="1110.0">offerFactory.Factory</node>
+    <node x="1495.4554195804194" y="800.0">products.ProductCategoryTicket</node>
+    <node x="675.3339136052731" y="920.0">offerFactory.BookFactory</node>
+    <node x="402.3339136052731" y="700.0">offers.Offers</node>
+    <node x="1582.22739641696" y="700.0">products.InterfaceProduct</node>
+    <node x="843.3339136052731" y="700.0">products.ProductCategoryGame</node>
+    <node x="1988.47739641696" y="1420.0">loginAndRegister.Invoker</node>
+    <node x="1962.47739641696" y="1320.0">loginAndRegister.Command</node>
+    <node x="964.1637529137529" y="1000.0">offerFactory.TicketFactory</node>
+    <node x="1370.6554195804197" y="920.0">products.AdapterProductCategoryTicket</node>
+    <node x="189.0" y="90.0">discount.TenPercentDiscount</node>
+    <node x="1064.333913605273" y="700.0">products.ProductCategoryBook</node>
+    <node x="402.0" y="90.0">discount.HappyHoursDiscount</node>
+    <node x="270.05759216511535" y="1230.0">account.CustomerAccount</node>
+    <node x="1718.22739641696" y="1230.0">webUsers.WebUsers</node>
+    <node x="1196.5804195804194" y="1110.0">account.UserState</node>
+    <node x="1120.5510749768023" y="800.0">account.Account</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="offerFactory.TicketFactory" target="products.Product">
+      <point x="-50.66666666666674" y="-15.0" />
+      <point x="989.4970862470861" y="975.0" />
+      <point x="832.8339136052731" y="975.0" />
+      <point x="832.8339136052731" y="670.0" />
+      <point x="584.7440630836265" y="670.0" />
+      <point x="16.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.LogCommand" target="account.UserState">
+      <point x="0.0" y="-15.0" />
+      <point x="1219.0348648923882" y="1370.0" />
+      <point x="1271.5804195804194" y="1370.0" />
+      <point x="15.0" y="15.0" />
+    </edge>
+    <edge source="products.AdapterProductCategoryTicket" target="products.ProductCategoryTicket">
+      <point x="108.79999999999995" y="-15.0" />
+      <point x="1615.4554195804194" y="900.0" />
+      <point x="1657.4554195804194" y="900.0" />
+      <point x="54.0" y="15.0" />
+    </edge>
+    <edge source="order.Order" target="account.FacadeAccount">
+      <point x="33.846153846153925" y="15.0" />
+      <point x="249.320070409634" y="350.0" />
+      <point x="1400.6576923076923" y="350.0" />
+      <point x="-30.399999999999977" y="-15.0" />
+    </edge>
+    <edge source="account.AdminAccount" target="account.CustomerAccount">
+      <point x="-60.0" y="-15.0" />
+      <point x="1796.72739641696" y="1280.0" />
+      <point x="410.05759216511535" y="1280.0" />
+      <point x="56.0" y="15.0" />
+    </edge>
+    <edge source="shoppingCart.ShoppingCart" target="order.Order">
+      <point x="-61.71428571428578" y="-15.0" />
+      <point x="291.54819931955876" y="780.0" />
+      <point x="194.8971004184599" y="780.0" />
+      <point x="194.8971004184599" y="380.0" />
+      <point x="208.70468579424926" y="380.0" />
+      <point x="-6.7692307692308304" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.LogCommand" target="account.CustomerAccount">
+      <point x="-25.600000000000023" y="-15.0" />
+      <point x="1193.434864892388" y="1390.0" />
+      <point x="298.05759216511535" y="1390.0" />
+      <point x="-56.0" y="15.0" />
+    </edge>
+    <edge source="discount.DefaultDiscount" target="discount.IDiscount">
+      <point x="0.0" y="-15.0" />
+      <point x="84.0" y="60.0" />
+      <point x="196.89058323014672" y="60.0" />
+      <point x="-48.0" y="15.0" />
+    </edge>
+    <edge source="account.AdminAccount" target="account.Account">
+      <point x="12.0" y="-15.0" />
+      <point x="1868.72739641696" y="1300.0" />
+      <point x="1875.22739641696" y="1300.0" />
+      <point x="1875.22739641696" y="880.0" />
+      <point x="1210.369256794984" y="880.0" />
+      <point x="37.818181818181756" y="15.0" />
+    </edge>
+    <edge source="products.ProductCategoryBook" target="products.Product">
+      <point x="-66.66666666666674" y="-15.0" />
+      <point x="1097.6672469386062" y="640.0" />
+      <point x="608.7440630836265" y="640.0" />
+      <point x="40.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.Invoker" target="loginAndRegister.Command">
+      <point x="-26.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="account.AdminAccount" target="account.UserState">
+      <point x="-12.0" y="-15.0" />
+      <point x="1844.72739641696" y="1290.0" />
+      <point x="1864.22739641696" y="1290.0" />
+      <point x="1864.22739641696" y="1200.0" />
+      <point x="1301.5804195804194" y="1200.0" />
+      <point x="45.0" y="15.0" />
+    </edge>
+    <edge source="account.AdminAccount" target="webUsers.WebUsers">
+      <point x="-36.0" y="-15.0" />
+      <point x="1820.72739641696" y="1300.0" />
+      <point x="1811.5607297502934" y="1300.0" />
+      <point x="37.333333333333485" y="15.0" />
+    </edge>
+    <edge source="offerFactory.GameFactory" target="products.Product">
+      <point x="-45.33333333333337" y="-15.0" />
+      <point x="542.0005802719397" y="850.0" />
+      <point x="546.5839136052731" y="850.0" />
+      <point x="546.5839136052731" y="680.0" />
+      <point x="568.7440630836265" y="680.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="account.Account" target="products.Product">
+      <point x="-13.0" y="-15.0" />
+      <point x="1159.5510749768023" y="750.0" />
+      <point x="1053.833913605273" y="750.0" />
+      <point x="1053.833913605273" y="650.0" />
+      <point x="600.7440630836265" y="650.0" />
+      <point x="32.0" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="offers.Offers">
+      <point x="12.923076923076906" y="-15.0" />
+      <point x="366.98066908819226" y="1160.0" />
+      <point x="444.8339136052731" y="1160.0" />
+      <point x="444.8339136052731" y="780.0" />
+      <point x="438.3339136052731" y="780.0" />
+      <point x="-12.0" y="15.0" />
+    </edge>
+    <edge source="order.Order" target="payment.Payment">
+      <point x="-7.333333333333314" y="-15.0" />
+      <point x="208.14058323014672" y="220.0" />
+      <point x="254.80724989681346" y="220.0" />
+      <point x="-43.333333333333314" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.Register" target="loginAndRegister.LogCommand">
+      <point x="-35.0" y="-15.0" />
+      <point x="1748.2848648923882" y="1490.0" />
+      <point x="1187.0348648923882" y="1490.0" />
+      <point x="-32.0" y="15.0" />
+    </edge>
+    <edge source="payment.Payment" target="order.Order">
+      <point x="-8.666666666666742" y="15.0" />
+      <point x="289.47391656348" y="240.0" />
+      <point x="237.4739165634801" y="240.0" />
+      <point x="22.0" y="-15.0" />
+    </edge>
+    <edge source="offerFactory.Factory" target="offerFactory.BookFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="724.0575921651155" y="1050.0" />
+      <point x="737.8339136052731" y="1050.0" />
+      <point x="737.8339136052731" y="975.0" />
+      <point x="709.3339136052731" y="975.0" />
+      <point x="-34.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.BookFactory" target="account.Account">
+      <point x="45.33333333333326" y="-15.0" />
+      <point x="788.6672469386064" y="880.0" />
+      <point x="1144.187438613166" y="880.0" />
+      <point x="-28.36363636363626" y="15.0" />
+    </edge>
+    <edge source="products.AdapterProductCategoryTicket" target="account.FacadeAccount">
+      <point x="0.0" y="-15.0" />
+      <point x="1506.6554195804197" y="900.0" />
+      <point x="1484.9554195804194" y="900.0" />
+      <point x="1484.9554195804194" y="550.0" />
+      <point x="1445.3076923076924" y="550.0" />
+      <point x="14.25" y="15.0" />
+    </edge>
+    <edge source="account.Account" target="offers.Offers">
+      <point x="-39.0" y="-15.0" />
+      <point x="1133.5510749768023" y="760.0" />
+      <point x="486.3339136052731" y="760.0" />
+      <point x="36.0" y="15.0" />
+    </edge>
+    <edge source="products.ProductCategoryGame" target="account.FacadeAccount">
+      <point x="0.0" y="-15.0" />
+      <point x="943.3339136052731" y="670.0" />
+      <point x="1013.0576923076923" y="670.0" />
+      <point x="1013.0576923076923" y="510.0" />
+      <point x="1397.8076923076924" y="510.0" />
+      <point x="-33.25" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.Register" target="loginAndRegister.Command">
+      <point x="49.0" y="-15.0" />
+      <point x="1832.2848648923882" y="1500.0" />
+      <point x="2102.97739641696" y="1500.0" />
+      <point x="2102.97739641696" y="1390.0" />
+      <point x="2056.07739641696" y="1390.0" />
+      <point x="41.59999999999991" y="15.0" />
+    </edge>
+    <edge source="offerFactory.GameFactory" target="products.ProductCategoryGame">
+      <point x="0.0" y="-15.0" />
+      <point x="587.3339136052731" y="850.0" />
+      <point x="579.7440630836265" y="850.0" />
+      <point x="579.7440630836265" y="770.0" />
+      <point x="943.3339136052731" y="770.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="shoppingCart.ShoppingCart">
+      <point x="0.0" y="-15.0" />
+      <point x="354.05759216511535" y="1210.0" />
+      <point x="358.76248503384454" y="1210.0" />
+      <point x="358.76248503384454" y="850.0" />
+      <point x="389.26248503384454" y="850.0" />
+      <point x="36.0" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="order.Order">
+      <point x="-77.53846153846155" y="-15.0" />
+      <point x="276.5191306266538" y="1210.0" />
+      <point x="29.807592165115352" y="1210.0" />
+      <point x="29.807592165115352" y="330.0" />
+      <point x="174.85853194809545" y="330.0" />
+      <point x="-40.61538461538464" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="account.UserState">
+      <point x="64.61538461538464" y="-15.0" />
+      <point x="418.6729767805" y="1200.0" />
+      <point x="1211.5804195804194" y="1200.0" />
+      <point x="-45.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.Factory" target="offers.Offers">
+      <point x="-46.22222222222217" y="-15.0" />
+      <point x="677.8353699428933" y="1090.0" />
+      <point x="455.8339136052731" y="1090.0" />
+      <point x="455.8339136052731" y="780.0" />
+      <point x="462.3339136052731" y="780.0" />
+      <point x="12.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.Register" target="loginAndRegister.RegisterCommand">
+      <point x="-7.0" y="-15.0" />
+      <point x="1776.2848648923882" y="1470.0" />
+      <point x="1741.2848648923882" y="1470.0" />
+      <point x="-42.0" y="15.0" />
+    </edge>
+    <edge source="products.ProductCategoryTicket" target="account.FacadeAccount">
+      <point x="0.0" y="-15.0" />
+      <point x="1603.4554195804194" y="780.0" />
+      <point x="1571.72739641696" y="780.0" />
+      <point x="1571.72739641696" y="530.0" />
+      <point x="1464.3076923076924" y="530.0" />
+      <point x="33.25" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="historyOfOrders.HistoryOfOrders">
+      <point x="-64.61538461538464" y="-15.0" />
+      <point x="289.4422075497307" y="1200.0" />
+      <point x="82.30759216511535" y="1200.0" />
+      <point x="-42.0" y="15.0" />
+    </edge>
+    <edge source="payment.Payment" target="discount.HappyHoursDiscount">
+      <point x="39.0" y="-15.0" />
+      <point x="337.1405832301467" y="150.0" />
+      <point x="498.0" y="150.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="offerFactory.Factory">
+      <point x="25.84615384615381" y="-15.0" />
+      <point x="379.90374601126916" y="1170.0" />
+      <point x="724.0575921651155" y="1170.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="products.Product" target="account.FacadeAccount">
+      <point x="34.66666666666663" y="-15.0" />
+      <point x="603.4107297502933" y="500.0" />
+      <point x="1388.3076923076924" y="500.0" />
+      <point x="-42.75" y="15.0" />
+    </edge>
+    <edge source="shoppingCart.ShoppingCart" target="offers.Offers">
+      <point x="61.71428571428578" y="-15.0" />
+      <point x="-36.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.LogCommand" target="loginAndRegister.Register">
+      <point x="32.0" y="15.0" />
+      <point x="1251.0348648923882" y="1480.0" />
+      <point x="1762.2848648923882" y="1480.0" />
+      <point x="-21.0" y="-15.0" />
+    </edge>
+    <edge source="loginAndRegister.LogCommand" target="webUsers.WebUsers">
+      <point x="25.600000000000023" y="-15.0" />
+      <point x="1244.6348648923881" y="1380.0" />
+      <point x="1282.5804195804194" y="1380.0" />
+      <point x="1282.5804195804194" y="1300.0" />
+      <point x="1736.8940630836264" y="1300.0" />
+      <point x="-37.333333333333485" y="15.0" />
+    </edge>
+    <edge source="offerFactory.TicketFactory" target="account.Account">
+      <point x="0.0" y="-15.0" />
+      <point x="1040.163752913753" y="975.0" />
+      <point x="1036.0348648923882" y="975.0" />
+      <point x="1036.0348648923882" y="900.0" />
+      <point x="1163.0965295222568" y="900.0" />
+      <point x="-9.454545454545496" y="15.0" />
+    </edge>
+    <edge source="products.ProductCategoryTicket" target="products.InterfaceProduct">
+      <point x="72.0" y="-15.0" />
+      <point x="1675.4554195804194" y="780.0" />
+      <point x="1670.22739641696" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.GameFactory" target="offerFactory.Factory">
+      <point x="-34.0" y="15.0" />
+      <point x="553.3339136052731" y="975.0" />
+      <point x="581.8339136052731" y="975.0" />
+      <point x="581.8339136052731" y="1070.0" />
+      <point x="700.9464810540044" y="1070.0" />
+      <point x="-23.111111111111086" y="-15.0" />
+    </edge>
+    <edge source="offerFactory.BookFactory" target="products.Product">
+      <point x="-45.33333333333326" y="-15.0" />
+      <point x="698.0005802719398" y="850.0" />
+      <point x="670.8272962743831" y="850.0" />
+      <point x="670.8272962743831" y="680.0" />
+      <point x="576.7440630836265" y="680.0" />
+      <point x="8.0" y="15.0" />
+    </edge>
+    <edge source="payment.Payment" target="discount.TenPercentDiscount">
+      <point x="-13.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="account.Account" target="loginAndRegister.Register">
+      <point x="-47.27272727272725" y="15.0" />
+      <point x="1125.278347704075" y="860.0" />
+      <point x="7.807592165115352" y="860.0" />
+      <point x="7.807592165115352" y="1500.0" />
+      <point x="1734.2848648923882" y="1500.0" />
+      <point x="-49.0" y="-15.0" />
+    </edge>
+    <edge source="offerFactory.Factory" target="offerFactory.GameFactory">
+      <point x="-11.555555555555657" y="-15.0" />
+      <point x="712.5020366095598" y="1060.0" />
+      <point x="592.8339136052731" y="1060.0" />
+      <point x="592.8339136052731" y="975.0" />
+      <point x="621.3339136052731" y="975.0" />
+      <point x="34.0" y="15.0" />
+    </edge>
+    <edge source="discount.HappyHoursDiscount" target="discount.IDiscount">
+      <point x="0.0" y="-15.0" />
+      <point x="498.0" y="50.0" />
+      <point x="292.8905832301467" y="50.0" />
+      <point x="48.0" y="15.0" />
+    </edge>
+    <edge source="payment.Payment" target="account.FacadeAccount">
+      <point x="26.0" y="15.0" />
+      <point x="324.1405832301467" y="250.0" />
+      <point x="1423.4273964169597" y="250.0" />
+      <point x="1423.4273964169597" y="330.0" />
+      <point x="1461.4576923076922" y="330.0" />
+      <point x="30.399999999999977" y="-15.0" />
+    </edge>
+    <edge source="ShopOnline" target="loginAndRegister.Register">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="account.Account" target="account.FacadeAccount">
+      <point x="39.0" y="-15.0" />
+      <point x="1211.5510749768023" y="780.0" />
+      <point x="1371.8871376196607" y="780.0" />
+      <point x="1371.8871376196607" y="550.0" />
+      <point x="1435.8076923076924" y="550.0" />
+      <point x="4.75" y="15.0" />
+    </edge>
+    <edge source="account.AdminAccount" target="account.FacadeAccount">
+      <point x="60.000000000000114" y="-15.0" />
+      <point x="1916.72739641696" y="1290.0" />
+      <point x="1897.22739641696" y="1290.0" />
+      <point x="1897.22739641696" y="500.0" />
+      <point x="1492.8076923076924" y="500.0" />
+      <point x="61.75" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="loginAndRegister.Command">
+      <point x="70.0" y="-15.0" />
+      <point x="1853.2848648923882" y="1400.0" />
+      <point x="1993.6773964169602" y="1400.0" />
+      <point x="-20.80000000000001" y="15.0" />
+    </edge>
+    <edge source="historyOfOrders.HistoryOfOrders" target="order.Order">
+      <point x="-33.59999999999991" y="-15.0" />
+      <point x="90.70759216511544" y="1080.0" />
+      <point x="59.1471004184599" y="1080.0" />
+      <point x="59.1471004184599" y="350.0" />
+      <point x="188.396993486557" y="350.0" />
+      <point x="-27.076923076923094" y="15.0" />
+    </edge>
+    <edge source="order.Order" target="products.Product">
+      <point x="6.7692307692308304" y="15.0" />
+      <point x="222.24314733271092" y="390.0" />
+      <point x="545.9107297502933" y="390.0" />
+      <point x="545.9107297502933" y="460.0" />
+      <point x="534.07739641696" y="460.0" />
+      <point x="-34.66666666666663" y="-15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="loginAndRegister.Register">
+      <point x="42.0" y="15.0" />
+      <point x="1825.2848648923882" y="1470.0" />
+      <point x="1790.2848648923882" y="1470.0" />
+      <point x="7.0" y="-15.0" />
+    </edge>
+    <edge source="shoppingCart.ShoppingCart" target="account.FacadeAccount">
+      <point x="-20.571428571428555" y="-15.0" />
+      <point x="332.691056462416" y="760.0" />
+      <point x="216.8971004184599" y="760.0" />
+      <point x="216.8971004184599" y="480.0" />
+      <point x="1369.3076923076924" y="480.0" />
+      <point x="-61.75" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="products.Product">
+      <point x="-25.84615384615381" y="-15.0" />
+      <point x="328.21143831896154" y="1170.0" />
+      <point x="270.76248503384454" y="1170.0" />
+      <point x="270.76248503384454" y="620.0" />
+      <point x="520.7440630836265" y="620.0" />
+      <point x="-48.0" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="historyOfOrders.HistoryIterator">
+      <point x="-38.76923076923072" y="-15.0" />
+      <point x="315.28836139588464" y="1180.0" />
+      <point x="233.76248503384454" y="1180.0" />
+      <point x="233.76248503384454" y="1090.0" />
+      <point x="239.26248503384454" y="1090.0" />
+      <point x="63.0" y="15.0" />
+    </edge>
+    <edge source="payment.Payment" target="discount.IDiscount">
+      <point x="13.0" y="-15.0" />
+      <point x="311.1405832301467" y="140.0" />
+      <point x="391.5" y="140.0" />
+      <point x="391.5" y="60.0" />
+      <point x="268.8905832301467" y="60.0" />
+      <point x="24.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="account.CustomerAccount">
+      <point x="-70.0" y="-15.0" />
+      <point x="1713.2848648923882" y="1380.0" />
+      <point x="1293.5804195804194" y="1380.0" />
+      <point x="1293.5804195804194" y="1290.0" />
+      <point x="354.05759216511535" y="1290.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.LogCommand" target="account.FacadeAccount">
+      <point x="-51.200000000000045" y="-15.0" />
+      <point x="1167.834864892388" y="1400.0" />
+      <point x="18.807592165115352" y="1400.0" />
+      <point x="18.807592165115352" y="470.0" />
+      <point x="1359.8076923076924" y="470.0" />
+      <point x="-71.25" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="account.Account">
+      <point x="-42.0" y="-15.0" />
+      <point x="1741.2848648923882" y="1370.0" />
+      <point x="1327.0804195804194" y="1370.0" />
+      <point x="1327.0804195804194" y="900.0" />
+      <point x="1191.4601658858933" y="900.0" />
+      <point x="18.90909090909099" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="webUsers.WebUsers">
+      <point x="-14.0" y="-15.0" />
+      <point x="1769.2848648923882" y="1380.0" />
+      <point x="1774.22739641696" y="1380.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="historyOfOrders.HistoryOfOrders" target="historyOfOrders.HistoryIterator">
+      <point x="0.0" y="-15.0" />
+      <point x="124.30759216511535" y="1090.0" />
+      <point x="113.26248503384454" y="1090.0" />
+      <point x="-63.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.Register" target="loginAndRegister.Invoker">
+      <point x="21.0" y="-15.0" />
+      <point x="1804.2848648923882" y="1480.0" />
+      <point x="2014.47739641696" y="1480.0" />
+      <point x="-26.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.GameFactory" target="account.Account">
+      <point x="45.33333333333326" y="-15.0" />
+      <point x="632.6672469386064" y="870.0" />
+      <point x="1134.7328931586205" y="870.0" />
+      <point x="-37.818181818181756" y="15.0" />
+    </edge>
+    <edge source="offerFactory.Factory" target="offerFactory.TicketFactory">
+      <point x="34.66666666666674" y="-15.0" />
+      <point x="758.7242588317822" y="1080.0" />
+      <point x="1002.1637529137529" y="1080.0" />
+      <point x="-38.0" y="15.0" />
+    </edge>
+    <edge source="historyOfOrders.HistoryIterator" target="order.Order">
+      <point x="42.0" y="-15.0" />
+      <point x="218.26248503384454" y="975.0" />
+      <point x="181.76248503384454" y="975.0" />
+      <point x="181.76248503384454" y="370.0" />
+      <point x="201.93545502501854" y="370.0" />
+      <point x="-13.538461538461547" y="15.0" />
+    </edge>
+    <edge source="offerFactory.TicketFactory" target="offerFactory.Factory">
+      <point x="38.0" y="15.0" />
+      <point x="1078.163752913753" y="1090.0" />
+      <point x="770.2798143873376" y="1090.0" />
+      <point x="46.22222222222217" y="-15.0" />
+    </edge>
+    <edge source="offers.Offers" target="products.Product">
+      <point x="-24.0" y="-15.0" />
+      <point x="426.3339136052731" y="650.0" />
+      <point x="544.7440630836265" y="650.0" />
+      <point x="-24.0" y="15.0" />
+    </edge>
+    <edge source="products.AdapterProductCategoryTicket" target="products.Product">
+      <point x="-54.40000000000009" y="-15.0" />
+      <point x="1452.2554195804196" y="900.0" />
+      <point x="1446.8076923076924" y="900.0" />
+      <point x="1446.8076923076924" y="630.0" />
+      <point x="616.7440630836265" y="630.0" />
+      <point x="48.0" y="15.0" />
+    </edge>
+    <edge source="products.ProductCategoryGame" target="products.Product">
+      <point x="-66.66666666666674" y="-15.0" />
+      <point x="876.6672469386064" y="660.0" />
+      <point x="592.7440630836265" y="660.0" />
+      <point x="24.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.LogCommand" target="loginAndRegister.Command">
+      <point x="51.200000000000045" y="-15.0" />
+      <point x="1270.234864892388" y="1390.0" />
+      <point x="1972.87739641696" y="1390.0" />
+      <point x="-41.599999999999994" y="15.0" />
+    </edge>
+    <edge source="account.CustomerAccount" target="account.Account">
+      <point x="51.692307692307736" y="-15.0" />
+      <point x="405.7498998574231" y="1190.0" />
+      <point x="1186.0804195804194" y="1190.0" />
+      <point x="1186.0804195804194" y="900.0" />
+      <point x="1182.0056204313478" y="900.0" />
+      <point x="9.454545454545496" y="15.0" />
+    </edge>
+    <edge source="discount.TenPercentDiscount" target="discount.IDiscount">
+      <point x="0.0" y="-15.0" />
+      <point x="285.0" y="70.0" />
+      <point x="244.89058323014672" y="70.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="account.AdminAccount">
+      <point x="14.0" y="-15.0" />
+      <point x="1797.2848648923882" y="1370.0" />
+      <point x="1856.72739641696" y="1370.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.BookFactory" target="offerFactory.Factory">
+      <point x="34.0" y="15.0" />
+      <point x="777.3339136052731" y="975.0" />
+      <point x="748.8339136052731" y="975.0" />
+      <point x="748.8339136052731" y="1060.0" />
+      <point x="735.6131477206711" y="1060.0" />
+      <point x="11.555555555555657" y="-15.0" />
+    </edge>
+    <edge source="order.Order" target="order.OrderStatus">
+      <point x="-36.66666666666663" y="-15.0" />
+      <point x="178.80724989681346" y="250.0" />
+      <point x="124.14058323014672" y="250.0" />
+      <point x="-34.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.Factory" target="account.Account">
+      <point x="23.111111111111086" y="-15.0" />
+      <point x="747.1687032762266" y="1070.0" />
+      <point x="821.8339136052731" y="1070.0" />
+      <point x="821.8339136052731" y="890.0" />
+      <point x="1153.6419840677113" y="890.0" />
+      <point x="-18.90909090909099" y="15.0" />
+    </edge>
+    <edge source="account.FacadeAccount" target="order.Order">
+      <point x="-60.799999999999955" y="-15.0" />
+      <point x="1370.2576923076922" y="360.0" />
+      <point x="242.55083964040318" y="360.0" />
+      <point x="27.076923076923094" y="15.0" />
+    </edge>
+    <edge source="loginAndRegister.RegisterCommand" target="account.FacadeAccount">
+      <point x="42.0" y="-15.0" />
+      <point x="1825.2848648923882" y="1380.0" />
+      <point x="1939.22739641696" y="1380.0" />
+      <point x="1939.22739641696" y="490.0" />
+      <point x="1502.3076923076924" y="490.0" />
+      <point x="71.25" y="15.0" />
+    </edge>
+    <edge source="offerFactory.BookFactory" target="products.ProductCategoryBook">
+      <point x="0.0" y="-15.0" />
+      <point x="743.3339136052731" y="850.0" />
+      <point x="735.7440630836267" y="850.0" />
+      <point x="735.7440630836267" y="780.0" />
+      <point x="1164.333913605273" y="780.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="products.ProductCategoryBook" target="account.FacadeAccount">
+      <point x="0.0" y="-15.0" />
+      <point x="1164.333913605273" y="680.0" />
+      <point x="1192.1672469386065" y="680.0" />
+      <point x="1192.1672469386065" y="530.0" />
+      <point x="1416.8076923076924" y="530.0" />
+      <point x="-14.25" y="15.0" />
+    </edge>
+    <edge source="account.Account" target="order.Order">
+      <point x="13.0" y="-15.0" />
+      <point x="1185.5510749768023" y="770.0" />
+      <point x="1274.833913605273" y="770.0" />
+      <point x="1274.833913605273" y="370.0" />
+      <point x="235.78160887117235" y="370.0" />
+      <point x="20.307692307692264" y="15.0" />
+    </edge>
+    <edge source="shoppingCart.ShoppingCart" target="products.Product">
+      <point x="41.14285714285711" y="-15.0" />
+      <point x="394.40534217670165" y="780.0" />
+      <point x="390.5839136052731" y="780.0" />
+      <point x="390.5839136052731" y="640.0" />
+      <point x="536.7440630836265" y="640.0" />
+      <point x="-32.0" y="15.0" />
+    </edge>
+    <edge source="offerFactory.Factory" target="products.Product">
+      <point x="-34.66666666666674" y="-15.0" />
+      <point x="689.3909254984487" y="1080.0" />
+      <point x="508.8339136052731" y="1080.0" />
+      <point x="508.8339136052731" y="670.0" />
+      <point x="560.7440630836265" y="670.0" />
+      <point x="-8.0" y="15.0" />
+    </edge>
+    <edge source="products.AdapterProductCategoryTicket" target="account.Account">
+      <point x="-108.79999999999995" y="-15.0" />
+      <point x="1397.8554195804195" y="890.0" />
+      <point x="1200.9147113404385" y="890.0" />
+      <point x="28.36363636363626" y="15.0" />
+    </edge>
+    <edge source="webUsers.WebUsers" target="account.FacadeAccount">
+      <point x="-28.0" y="-15.0" />
+      <point x="1746.22739641696" y="1210.0" />
+      <point x="1768.72739641696" y="1210.0" />
+      <point x="1768.72739641696" y="520.0" />
+      <point x="1473.8076923076924" y="520.0" />
+      <point x="42.75" y="15.0" />
+    </edge>
+    <edge source="offerFactory.TicketFactory" target="products.AdapterProductCategoryTicket">
+      <point x="50.66666666666674" y="-15.0" />
+      <point x="1090.8304195804196" y="975.0" />
+      <point x="1506.6554195804197" y="975.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.40606060606060607" x="1051.5" y="815.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

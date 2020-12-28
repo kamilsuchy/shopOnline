@@ -2,7 +2,9 @@ package account;
 
 import loginAndRegister.Register;
 import offers.Offers;
+import order.Order;
 import products.Product;
+import shoppingCart.ShoppingCart;
 
 
 public abstract class Account implements FacadeAccount{
@@ -20,6 +22,21 @@ public abstract class Account implements FacadeAccount{
         this.userID = userID;
     }
 
+    @Override
+    public ShoppingCart getCart() {
+        return null;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    @Override
+    public boolean subMoney(double money){return false;}
+
+    @Override
+    public void addToHistory(Order order){};
+
     public String getName() {
         return name;
     }
@@ -34,6 +51,10 @@ public abstract class Account implements FacadeAccount{
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void printOffers() {

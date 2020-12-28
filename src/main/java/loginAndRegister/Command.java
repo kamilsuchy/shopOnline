@@ -1,4 +1,4 @@
-package command;
+package loginAndRegister;
 
 @FunctionalInterface
 public interface Command {

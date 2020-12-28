@@ -3,16 +3,15 @@ package products;
 import account.Account;
 import account.FacadeAccount;
 
-import java.util.Date;
 
 public class ProductCategoryTicket implements InterfaceProduct {
-    private final String name;
-    private final String event;
-    private final String eventDate;
-    private final double price;
-    private final FacadeAccount account;
+    protected String name;
+    protected String event;
+    protected String eventDate;
+    protected double price;
+    protected FacadeAccount account;
 
-    public ProductCategoryTicket(String name, String event, String eventDate, double price, Account account) {
+    public ProductCategoryTicket(String name, String event, String eventDate, double price, FacadeAccount account) {
         this.name = name;
         this.event = event;
         this.eventDate = eventDate;

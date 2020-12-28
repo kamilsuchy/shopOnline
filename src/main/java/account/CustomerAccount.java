@@ -2,11 +2,14 @@ package account;
 
 import historyOfOrders.HistoryIterator;
 import historyOfOrders.HistoryOfOrders;
-import offerFactory.BookFactory;
-import offerFactory.Factory;
+import  offerFactory.Factory;
 import offers.Offers;
-import products.*;
+import order.Order;
+import products.Product;
+import products.ProductCategoryBook;
+import shoppingCart.ShoppingCart;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerAccount extends Account {
@@ -15,6 +18,7 @@ public class CustomerAccount extends Account {
     double balance;
     String email;
     HistoryOfOrders historyOfOrders;
+    ShoppingCart cart;
 
     public UserState getUserState() {
         return userState;
@@ -30,18 +34,12 @@ public class CustomerAccount extends Account {
         this.balance = 0;
         this.email = email;
         this.historyOfOrders = new HistoryOfOrders();
+        this.cart = new ShoppingCart(this);
     }
 
-    private void addMoney(double money) {
+    @Override
+    public void addMoney(double money) {
         this.balance += money;
-    }
-
-    private boolean subMoney(double money) {
-        if (this.balance - money >= 0) {
-            this.balance -= money;
-            return true;
-        }
-        return false;
     }
 
     private void addMoneyToAccount() {
@@ -60,7 +58,29 @@ public class CustomerAccount extends Account {
     }
 
     private void addProduct(){
-        Factory.create(this);
+        System.out.println("1 - dodaj nowe ogłoszenie");
+        System.out.println("2 - dodaj ogłoszenie na podstawie innego");
+        Scanner s = new Scanner(System.in);
+        int c = s.nextInt();
+        if (c == 1){
+            Factory.create(this);
+        }else{
+            templateOffer();
+        }
+
+    }
+
+    private void templateOffer(){
+        printOffers();
+        System.out.println("Na podstawie, którego ogłoszenia chcesz stworzyć nowe");
+        Scanner s = new Scanner(System.in);
+        int c = s.nextInt();
+        c++;
+        System.out.println("wybrane ogłoszenie: ");
+        Product product = Offers.getInstance().getProductList().get(c);
+        product.print();
+        Product newProduct = (Product) product.clone();
+        newProduct.setAll(this);
     }
 
     private void printHistory(){
@@ -76,30 +96,61 @@ public class CustomerAccount extends Account {
     }
 
     private void printHistoryFromOldest(){
-        HistoryIterator iterator = historyOfOrders.getIterator();
-        for (iterator.first(); !iterator.isLast(); iterator.next()) {
-            iterator.currentOrder().printOrder();
-        }
+        if (historyOfOrders.getSize() == 0){
+            System.out.println("Brak historii zamówień");
+        }else{
+            HistoryIterator iterator = historyOfOrders.getIterator();
+            for (iterator.first(); !iterator.isLast(); iterator.next()) {
+                iterator.currentOrder().printOrder();
+            }
 //        iterator.last().printOrder(); //TODO sprawdzic czy potrzebne
+        }
     }
 
     private void printHistoryFromMostRecent(){
-        HistoryIterator iterator = historyOfOrders.getIterator();
-        for (iterator.last(); !iterator.isFirst();iterator.prev()){
-            iterator.currentOrder().printOrder();
-        }
+        if (historyOfOrders.getSize() == 0){
+            System.out.println("Brak historii zamówień");
+        }else{
+            HistoryIterator iterator = historyOfOrders.getIterator();
+            for (iterator.last(); !iterator.isFirst();iterator.prev()){
+                iterator.currentOrder().printOrder();
+            }
 //        iterator.first().printOrder(); //TODO sprawdzic czy potrzebne
+        }
+    }
+
+    private void doShopping(){
+        cart.doShopping();
     }
 
     @Override
     public void printOptions(){
         System.out.println("Co chcesz zrobić?");
-        System.out.println("1 - przegladaj oferty");
-        System.out.println("2 - doladuj konto");
-        System.out.println("3 - zobacz historie zamowien");
-        System.out.println("4 - zmien dane konta");
-        System.out.println("5 - dodaj ogloszenie");
+        System.out.println("1 - przeglądaj oferty");
+        System.out.println("2 - doładuj konto");
+        System.out.println("3 - zobacz historie zamówień");
+        System.out.println("4 - rób zakupy");
+        System.out.println("5 - dodaj ogłoszenie");
         System.out.println("6 - wyloguj");
+    }
+
+    @Override
+    public boolean subMoney(double money) {
+        if (this.balance - money >= 0) {
+            this.balance -= money;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void addToHistory(Order order) {
+        historyOfOrders.addToHistory(order);
+    }
+
+    @Override
+    public ShoppingCart getCart() {
+        return cart;
     }
 
     @Override
@@ -110,23 +161,19 @@ public class CustomerAccount extends Account {
             int c = scanner.nextInt();
             if (c == 1) {
                 printOffers();
-                //break;
             } else if (c == 2) {
                 addMoneyToAccount();
-                //break;
             } else if (c == 3) {
                 printHistory();
-                //break;
             } else if (c == 4) {
-                //todo
-                //break;
+                doShopping();
             }else if (c == 5){
                 addProduct();
-                //break;
             }else if (c == 6){
                 logout();
                 break;
             }
         }
     }
+
 }

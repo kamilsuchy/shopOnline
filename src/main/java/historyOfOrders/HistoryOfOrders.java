@@ -23,4 +23,12 @@ public class HistoryOfOrders {
     public List<Order> getOrderList() {
         return orderList;
     }
+
+    public void addToHistory(Order order){
+        orderList.add(order);
+    }
+
+    public int getSize(){
+        return orderList.size();
+    }
 }

@@ -20,11 +20,11 @@ public class Payment implements IPayment {
     private Order order;
     private FacadeAccount account;
 
-
-    public Payment(double priceBeforeDiscount, Order order, FacadeAccount account) {
+    public Payment(double priceBeforeDiscount, Order order, FacadeAccount account, IDiscount discount) {
         this.priceBeforeDiscount = priceBeforeDiscount;
         this.order = order;
         this.account = account;
+        this.discount = discount;
     }
 
     private void setDiscount(IDiscount discount) {
@@ -50,26 +50,32 @@ public class Payment implements IPayment {
         }
     }
 
-    private void pay() {
+    private Decorator setDecorator(){
+        if (priceAfterDiscount > 200) {
+            return new ImprovedDecorator(this);
+        } else {
+            return new DefaultDecorator(this);
+        }
+    }
 
+    private void moneyTransfer(){
+        Map<Product, Integer> productIntegerMap = order.getMap();
+        for (Map.Entry<Product, Integer> entry : productIntegerMap.entrySet()) {
+            entry.getKey().getAccount().addMoney(entry.getKey().getPrice() * entry.getValue());
+            deleteFromListProduct(entry.getKey().getName(), entry.getValue());
+        }
+    }
+
+    private void pay() {
         if (account.subMoney(priceAfterDiscount)) {
             System.out.println("Płatność zakończona pomyślnie");
             account.addToHistory(order);
-            Decorator decorator;
-            if (priceAfterDiscount > 200) {
-                decorator = new ImprovedDecorator(this);
-            } else {
-                decorator = new DefaultDecorator(this);
-            }
+
+            Decorator decorator = setDecorator();
             decorator.printBill();
+
             account.getCart().resetCart();
-            Map<Product, Integer> productIntegerMap = order.getMap();
-            for (Map.Entry<Product, Integer> entry : productIntegerMap.entrySet()) {
-                entry.getKey().getAccount().addMoney(entry.getKey().getPrice() * entry.getValue());
-                deleteFromListProduct(entry.getKey().getName(), entry.getValue());
-            }
-
-
+            moneyTransfer();
         } else {
             System.out.println("Nie można zrealizować płatności");
         }
@@ -77,17 +83,21 @@ public class Payment implements IPayment {
 
     private void deleteFromListProduct(String name, int quantity) {
         List<Product> productList = Offers.getInstance().getProductList();
-        for (Product product : productList){
-            if (product.getName().equals(name)){
-                if (product.getQuantity() == quantity){
-                    Offers.getInstance().removeProduct(product);
-                }else{
+        Product toDelete = null;
+
+        for (Product product : productList) {
+            if (product.getName().equals(name)) {
+                if (product.getQuantity() == quantity) {
+                    toDelete = product;
+                } else {
                     Offers.getInstance().setQuantity(product, product.getQuantity() - quantity);
                 }
             }
         }
+        if (toDelete != null) {
+            Offers.getInstance().removeProduct(toDelete);
+        }
     }
-
 
     public void paymentLoop() {
         System.out.println("Czy posiadasz kod rabatowy? [1 - TAK / 2 - NIE]");
@@ -104,8 +114,6 @@ public class Payment implements IPayment {
         c = s.nextInt();
         if (c == 1) {
             pay();
-        } else if (c == 2) {
-            //todo
         }
     }
 

@@ -6,6 +6,8 @@ import order.Order;
 import products.Product;
 import shoppingCart.ShoppingCart;
 
+import java.util.Scanner;
+
 
 public abstract class Account implements FacadeAccount{
     String name;
@@ -13,6 +15,7 @@ public abstract class Account implements FacadeAccount{
     String login;
     String password;
     int userID;
+    protected Scanner scanner;
 
     public Account(String name, String surname, String login, String password, int userID) {
         this.name = name;
@@ -20,11 +23,17 @@ public abstract class Account implements FacadeAccount{
         this.login = login;
         this.password = password;
         this.userID = userID;
+        this.scanner = new Scanner(System.in);
     }
 
     @Override
     public ShoppingCart getCart() {
         return null;
+    }
+
+    @Override
+    public void addMoney(double money) {
+        System.out.println("Nie można dodać");
     }
 
     public int getUserID() {
@@ -35,7 +44,9 @@ public abstract class Account implements FacadeAccount{
     public boolean subMoney(double money){return false;}
 
     @Override
-    public void addToHistory(Order order){};
+    public void addToHistory(Order order){
+        System.out.println("Nie możnana wykonać operacji");
+    }
 
     public String getName() {
         return name;

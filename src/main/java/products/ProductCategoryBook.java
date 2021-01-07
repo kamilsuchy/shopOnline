@@ -1,12 +1,11 @@
 package products;
 
-import account.Account;
 import account.FacadeAccount;
 
 import java.util.Scanner;
 
 
-public class ProductCategoryBook implements Product {
+public class ProductCategoryBook implements Product, Prototype {
 
     private String name;
     private String description;
@@ -51,6 +50,7 @@ public class ProductCategoryBook implements Product {
         return account;
     }
 
+    @Override
     public ProductCategoryBook clone(){
         return new ProductCategoryBook(this);
     }
@@ -122,6 +122,4 @@ public class ProductCategoryBook implements Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
-
 }

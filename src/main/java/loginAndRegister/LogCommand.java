@@ -52,5 +52,4 @@ public class LogCommand implements Command {
         }
         return null;
     }
-
 }

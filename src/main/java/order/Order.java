@@ -1,6 +1,7 @@
 package order;
 
 import account.FacadeAccount;
+import discount.DefaultDiscount;
 import payment.Payment;
 import products.Product;
 
@@ -21,13 +22,14 @@ public class Order {
             map.put(product, 1);
         }
         this.account = account;
-        status = OrderStatus.NEW;
+        this.status = OrderStatus.NEW;
     }
 
     public void printOrder() {
         System.out.println("====== ZAMÓWIENIE ======");
         int i = 0;
         for (Map.Entry<Product, Integer> entry : map.entrySet()) {
+            System.out.println();
             System.out.println("lp: " + (++i));
             entry.getKey().print();
             System.out.println("ilość: " + entry.getValue());
@@ -45,11 +47,10 @@ public class Order {
                 System.out.println("Podaj ilość");
                 int quantity = s.nextInt();
                 if (quantity >entry.getKey().getQuantity() ){
-                    System.out.println("NIEPRAWIDŁOWA WARTOŚĆ");
+                    System.out.println("NIEPRAWIDLOWA WARTOŚĆ");
                 }else {
                     entry.setValue(quantity);
                 }
-
             }
         }
     }
@@ -63,7 +64,7 @@ public class Order {
     }
 
     private void goToPayment(){
-        Payment pay = new Payment(calculateTotalPrice(),this,account );
+        Payment pay = new Payment(calculateTotalPrice(),this,account, new DefaultDiscount());
         pay.paymentLoop();
     }
 
@@ -77,7 +78,6 @@ public class Order {
     public void orderLoop() {
 
         Scanner s = new Scanner(System.in);
-
         while (true) {
             printOptions();
             int c = s.nextInt();

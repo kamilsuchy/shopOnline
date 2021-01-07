@@ -1,11 +1,10 @@
 package products;
 
-import account.Account;
 import account.FacadeAccount;
 
 import java.util.Scanner;
 
-public class ProductCategoryGame implements Product {
+public class ProductCategoryGame implements Product, Prototype {
 
     private String name;
     private String description;

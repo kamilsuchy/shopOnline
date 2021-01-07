@@ -4,7 +4,7 @@ import order.Order;
 
 import java.util.List;
 
-public class HistoryIterator {
+public class HistoryIterator implements Iterator{
 
     List<Order> orders;
     private int index;

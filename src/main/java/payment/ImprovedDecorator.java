@@ -2,10 +2,8 @@ package payment;
 
 public class ImprovedDecorator extends Decorator{
 
-    private final IPayment payment;
-
     public ImprovedDecorator(IPayment payment) {
-        this.payment = payment;
+        super(payment);
     }
 
     @Override

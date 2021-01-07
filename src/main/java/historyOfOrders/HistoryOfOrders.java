@@ -8,15 +8,14 @@ import java.util.List;
 public class HistoryOfOrders {
 
     private final List<Order> orderList;
-    private final HistoryIterator iterator;
+    private final Iterator iterator;
 
     public HistoryOfOrders() {
         orderList = new ArrayList<>();
         iterator = new HistoryIterator(orderList);
     }
 
-
-    public HistoryIterator getIterator(){
+    public Iterator getDefaultIterator() {
         return iterator;
     }
 
@@ -24,11 +23,11 @@ public class HistoryOfOrders {
         return orderList;
     }
 
-    public void addToHistory(Order order){
+    public void addToHistory(Order order) {
         orderList.add(order);
     }
 
-    public int getSize(){
+    public int getSize() {
         return orderList.size();
     }
 }

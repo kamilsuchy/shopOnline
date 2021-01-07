@@ -4,9 +4,7 @@ package loginAndRegister;
 import java.util.Scanner;
 
 public class Register {
-
-
-    public static void printOptions(){
+    private static void printOptions() {
         System.out.println("1 - logowanie");
         System.out.println("2 - rejestracja");
         System.out.println("3 - zakończ");

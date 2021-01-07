@@ -1,6 +1,5 @@
 package shoppingCart;
 
-import account.Account;
 import account.FacadeAccount;
 import offers.Offers;
 import order.Order;
@@ -11,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ShoppingCart {
+
     private List<Product> listOfProductsInCart;
     private final List<Product> allOffers;
     private final FacadeAccount account;
@@ -68,7 +68,7 @@ public class ShoppingCart {
         listOfProductsInCart = new ArrayList<>();
     }
 
-    public void searchByCategory(int category){
+    private void searchByCategory(int category){
         int i = 0;
         String c;
         if(category == 1){
@@ -88,7 +88,7 @@ public class ShoppingCart {
         }
     }
 
-    public void searchByName(String name) {
+    private void searchByName(String name) {
         int i = 0;
 
         for (Product product : allOffers) {
@@ -100,7 +100,7 @@ public class ShoppingCart {
         }
     }
 
-    public void displayAllOffers() {
+    private void displayAllOffers() {
         int i = 0;
         for (Product product : allOffers) {
             System.out.println("NUMER OFERTY: " + i);
@@ -113,7 +113,7 @@ public class ShoppingCart {
         listOfProductsInCart.add(product);
     }
 
-    public void addProductToCartByNumber(int n) {
+    private void addProductToCartByNumber(int n) {
         if (n < allOffers.size()){
             addProductToCart(allOffers.get(n));
             System.out.println("pomyślnie dodany do koszyka");
@@ -122,14 +122,15 @@ public class ShoppingCart {
         }
     }
 
-    public void displayCart() {
+    private void displayCart() {
         System.out.println("w koszyku");
         for (Product p : listOfProductsInCart) {
             p.print();
+            System.out.println();
         }
     }
 
-    public void shoppingCartApproval() {
+    private void shoppingCartApproval() {
         Order order = new Order(listOfProductsInCart, account);
         order.orderLoop();
     }

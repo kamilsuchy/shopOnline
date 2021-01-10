@@ -6,7 +6,7 @@ import products.Product;
 
 import java.util.Scanner;
 
-public class TicketFactory extends Factory{
+public class TicketFactory extends Factory {
 
     protected Product createOffer(Account account){
         Scanner scanner = new Scanner(System.in);
